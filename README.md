@@ -1,5 +1,7 @@
 # parole
 
+[![pypi_version](https://img.shields.io/pypi/v/parole?label=pypi)](https://pypi.org/project/parole)
+
 Very simply CLI password generator. This has probably been done a trillion times
 already. However, here's the one I occasionally use.
 
