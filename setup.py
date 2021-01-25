@@ -3,7 +3,7 @@ import setuptools
 setuptools.setup(
     name="parole",
     description="A simple password generator",
-    version="0.0.1",
+    version="0.0.2",
     author="Marius Merschformann",
     author_email="marius.merschformann@gmail.com",
     url="https://github.com/merschformann/parole",

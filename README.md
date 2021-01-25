@@ -1,4 +1,4 @@
-# pwgen
+# parole
 
 Very simply CLI password generator. This has probably been done a trillion times
 already. However, here's the one I occasionally use.
