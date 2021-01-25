@@ -1,9 +1,19 @@
 import setuptools
 
+# read the contents of README
+from os import path
+
+current_dir = path.abspath(path.dirname(__file__))
+with open(path.join(current_dir, "README.md"), encoding="utf-8") as f:
+    long_description = f.read()
+
+
 setuptools.setup(
     name="parole",
     description="A simple password generator",
-    version="0.0.2",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    version="0.0.3",
     author="Marius Merschformann",
     author_email="marius.merschformann@gmail.com",
     url="https://github.com/merschformann/parole",
