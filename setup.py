@@ -18,7 +18,10 @@ setuptools.setup(
     author_email="marius.merschformann@gmail.com",
     url="https://github.com/merschformann/parole",
     packages=setuptools.find_packages(),
-    install_requires=[],
+    install_requires=[
+        "pyperclip>=1.8.1",
+        "secrets>=1.0.2",
+    ],
     entry_points={
         "console_scripts": ["parole=parole.generator:main"],
     },

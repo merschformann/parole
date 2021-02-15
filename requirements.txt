@@ -1,0 +1,2 @@
+pyperclip>=1.8.1
+secrets>=1.0.2
