@@ -28,6 +28,7 @@ def setup_args():
     parser = argparse.ArgumentParser(description="plotting tools")
     parser.add_argument(
         "--alphabet",
+        "-a",
         type=str,
         nargs="?",
         default=string.ascii_letters + string.digits + SPECIAL_CHARACTERS,
@@ -35,17 +36,19 @@ def setup_args():
     )
     parser.add_argument(
         "--length",
+        "-l",
         type=int,
-        nargs="?",
+        nargs=1,
         default=20,
         help="length of the password",
     )
     parser.add_argument(
-        "--no-clipboard",
-        dest="no_clipboard",
+        "--show",
+        "-s",
+        dest="show",
         action="store_true",
         default=False,
-        help="indicates whether copying the password will be skipped",
+        help="indicates whether to show the password",
     )
     parser.add_argument(
         "--digits",
@@ -53,6 +56,13 @@ def setup_args():
         action="store_true",
         default=False,
         help="adds digits [0-9] to a custom alphabet",
+    )
+    parser.add_argument(
+        "--letters",
+        dest="letters",
+        action="store_true",
+        default=False,
+        help="adds latin letters [a-z,A-Z] to a custom alphabet",
     )
     parser.add_argument(
         "--lowercase",
@@ -69,11 +79,11 @@ def setup_args():
         help="adds uppercase latin letters [A-Z] to a custom alphabet",
     )
     parser.add_argument(
-        "--letters",
-        dest="letters",
+        "--no-clipboard",
+        dest="no_clipboard",
         action="store_true",
         default=False,
-        help="adds latin letters [a-z,A-Z] to a custom alphabet",
+        help="indicates whether copying the password will be skipped",
     )
     return parser
 
@@ -109,7 +119,8 @@ def main():
     pw = generate(args.length, alphabet)
 
     # Print and copy
-    print(pw)
+    if args.show:
+        print(pw)
     if not args.no_clipboard:
         try:
             pyperclip.copy(pw)
