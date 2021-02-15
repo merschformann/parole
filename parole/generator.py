@@ -38,7 +38,6 @@ def setup_args():
         "--length",
         "-l",
         type=int,
-        nargs=1,
         default=20,
         help="length of the password",
     )
@@ -100,8 +99,8 @@ def main():
     if args.length <= 0:
         print(f"Error: invalid password length: {args.length}")
         return
-    if not args.alphabet or len(args.alphabet) <= 0:
-        print(f"Error: empty alphabet given")
+    if not args.alphabet:
+        print(f"Error: invalid alphabet: {args.alphabet}")
         return
 
     # Determine alphabet (any duplicates will be removed by generation procedure)
@@ -114,6 +113,11 @@ def main():
         alphabet = alphabet + string.ascii_uppercase
     if args.letters:
         alphabet = alphabet + string.ascii_letters
+
+    # Another sanity check
+    if len(alphabet) <= 0:
+        print(f"Error: empty alphabet given")
+        return
 
     # Generate password
     pw = generate(args.length, alphabet)
