@@ -26,10 +26,16 @@ pip install "git+ssh://git@github.com/merschformann/parole.git" --upgrade
 
 ## Usage
 
-Get a password with default characteristics via:
+Generate and copy a password with default characteristics via:
 
 ```bash
 parole
+```
+
+Generate, copy _and display_ a password (make sure you're the only reader):
+
+```bash
+parole -s
 ```
 
 Display help:
