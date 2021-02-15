@@ -1,6 +1,6 @@
 # parole
 
-[![pypi_version](https://img.shields.io/pypi/v/parole?label=pypi)](https://pypi.org/project/parole)[![travis_status](https://api.travis-ci.com/merschformann/parole.svg?branch=main)](https://travis-ci.com/github/merschformann/parole)
+[![pypi_version](https://img.shields.io/pypi/v/parole?label=pypi)](https://pypi.org/project/parole)![build-status](https://github.com/merschformann/parole/workflows/build/badge.svg)
 
 Very simply CLI password generator. This has probably been done a trillion times
 already. However, here's the one I occasionally use.
