@@ -25,7 +25,7 @@ def generate(length, alphabet):
 
 
 def setup_args():
-    parser = argparse.ArgumentParser(description="plotting tools")
+    parser = argparse.ArgumentParser(description="password generator")
     parser.add_argument(
         "--alphabet",
         "-a",
