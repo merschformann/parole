@@ -100,7 +100,7 @@ def main():
     if args.length <= 0:
         print(f"Error: invalid password length: {args.length}")
         return
-    if len(args.alphabet) <= 0:
+    if not args.alphabet or len(args.alphabet) <= 0:
         print(f"Error: empty alphabet given")
         return
 
