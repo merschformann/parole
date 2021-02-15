@@ -13,7 +13,7 @@ setuptools.setup(
     description="A simple password generator",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    version="0.0.7",
+    version="0.0.8",
     author="Marius Merschformann",
     author_email="marius.merschformann@gmail.com",
     url="https://github.com/merschformann/parole",
