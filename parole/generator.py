@@ -7,6 +7,8 @@ import string
 
 SPECIAL_CHARACTERS = "@%$#+-*/=!?_()[]:;"
 
+DEFAULT_ALPHABET = string.ascii_letters + string.digits + SPECIAL_CHARACTERS
+
 # ==================== PW generation
 
 
@@ -26,28 +28,15 @@ def generate(length, alphabet):
 
 def setup_args():
     parser = argparse.ArgumentParser(description="password generator")
+
+    # Define alphabet control flags
     parser.add_argument(
         "--alphabet",
         "-a",
         type=str,
         nargs="?",
-        default=string.ascii_letters + string.digits + SPECIAL_CHARACTERS,
+        default=None,
         help="list of characters to be used for generating the password",
-    )
-    parser.add_argument(
-        "--length",
-        "-l",
-        type=int,
-        default=20,
-        help="length of the password",
-    )
-    parser.add_argument(
-        "--show",
-        "-s",
-        dest="show",
-        action="store_true",
-        default=False,
-        help="indicates whether to show the password",
     )
     parser.add_argument(
         "--digits",
@@ -77,6 +66,24 @@ def setup_args():
         default=False,
         help="adds uppercase latin letters [A-Z] to a custom alphabet",
     )
+
+    # Define further options
+    parser.add_argument(
+        "--length",
+        "-l",
+        type=int,
+        default=20,
+        help="length of the password",
+    )
+    parser.add_argument(
+        "--show",
+        "-s",
+        dest="show",
+        action="store_true",
+        default=False,
+        help="indicates whether to show the password",
+    )
+
     parser.add_argument(
         "--no-clipboard",
         dest="no_clipboard",
@@ -84,6 +91,7 @@ def setup_args():
         default=False,
         help="indicates whether copying the password will be skipped",
     )
+
     return parser
 
 
@@ -99,12 +107,23 @@ def main():
     if args.length <= 0:
         print(f"Error: invalid password length: {args.length}")
         return
-    if not args.alphabet:
-        print(f"Error: invalid alphabet: {args.alphabet}")
-        return
 
     # Determine alphabet (any duplicates will be removed by generation procedure)
-    alphabet = args.alphabet
+    # Use default alphabet, if no options are present
+    if (
+        args.alphabet is not None
+        or args.digits
+        or args.lowercase
+        or args.uppercase
+        or args.letters
+    ):
+        if args.alphabet is None:
+            alphabet = ""
+        else:
+            alphabet = args.alphabet
+    else:
+        alphabet = DEFAULT_ALPHABET
+    # Extend alphabet according to options
     if args.digits:
         alphabet = alphabet + string.digits
     if args.lowercase:
