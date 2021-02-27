@@ -4,7 +4,7 @@ import string
 import subprocess
 import sys
 
-# Direct test
+# Test directly
 def test_generate():
     length = 10
     alphabet = "abc"
@@ -15,11 +15,11 @@ def test_generate():
 
 
 # Test CLI
-COMMAND = [sys.executable, "../parole/generator.py"]
-CliTest = collections.namedtuple("Test", ["args", "alphabet", "length"])
-
-
 def test_main():
+
+    # Prepare
+    base = [sys.executable, "../parole/generator.py"]
+    CliTest = collections.namedtuple("Test", ["args", "alphabet", "length"])
 
     # Define test cases
     tests = [
@@ -38,7 +38,7 @@ def test_main():
 
     # Run all test cases
     for test in tests:
-        cmd = [*COMMAND, "-s", *test.args]
+        cmd = [*base, "-s", *test.args]
         cmd_string = " ".join(test.args)
         print(f"Invoking: {cmd_string}")
         result = subprocess.run(cmd, stdout=subprocess.PIPE)
