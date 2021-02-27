@@ -1,5 +1,6 @@
 import collections
 from parole import generator
+import pathlib
 import string
 import subprocess
 import sys
@@ -18,7 +19,12 @@ def test_generate():
 def test_main():
 
     # Prepare
-    base = [sys.executable, "../parole/generator.py"]
+    gen_path = str(
+        pathlib.Path(__file__)
+        .parent.joinpath("../parole/generator.py")
+        .resolve(strict=True)
+    )
+    base = [sys.executable, gen_path]
     CliTest = collections.namedtuple("Test", ["args", "alphabet", "length"])
 
     # Define test cases
