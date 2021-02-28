@@ -44,7 +44,7 @@ def test_main():
 
     # Run all test cases
     for test in tests:
-        cmd = [*base, "-s", *test.args]
+        cmd = [*base, "-s", "--no-clipboard", *test.args]
         cmd_string = " ".join(test.args)
         print(f"Invoking: {cmd_string}")
         result = subprocess.run(cmd, stdout=subprocess.PIPE)
