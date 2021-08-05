@@ -71,7 +71,9 @@ sudo apt install xsel
 ## Why?
 
 I use it for quickly generating a password while on the terminal (potentially
-using a custom alphabet). Furthermore, for myself it was a similar effort as
-googling a reliable and somewhat cryptographically secure solution. I am no
-expert on the latter, but I trust the authors of the `secrets` module (see
-https://docs.python.org/3/library/secrets.html#module-secrets).
+using a custom alphabet).
+Furthermore, I have my concerns using password generator websites and I
+typically have python installed on the machines I work with. Therefore, it's a
+quick way to get a somewhat secure password generator which aligns with my
+workflow. I am no it-security expert, but I trust the authors of the `secrets`
+module (see https://docs.python.org/3/library/secrets.html#module-secrets).
