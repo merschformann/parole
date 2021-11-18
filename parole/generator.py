@@ -135,7 +135,7 @@ def main():
 
     # Another sanity check
     if len(alphabet) <= 0:
-        print(f"Error: empty alphabet given")
+        print("Error: empty alphabet given")
         return
 
     # Generate password
@@ -147,7 +147,7 @@ def main():
     if not args.no_clipboard:
         try:
             pyperclip.copy(pw)
-        except:
+        except Exception:
             print(
                 "Error: no copy/paste mechanisms found for your system."
                 + " See https://pyperclip.readthedocs.io/en/latest/index.html#not-implemented-error for help"

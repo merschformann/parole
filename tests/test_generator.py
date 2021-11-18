@@ -5,14 +5,15 @@ import string
 import subprocess
 import sys
 
+
 # Test directly
 def test_generate():
     length = 10
     alphabet = "abc"
     pw = generator.generate(length, alphabet)
     assert len(pw) == 10, ""
-    for l in pw:
-        assert l in alphabet
+    for letter in pw:
+        assert letter in alphabet
 
 
 # Test CLI
@@ -53,8 +54,8 @@ def test_main():
         print(pw)
         if test.length > 0:
             assert len(pw) == test.length
-        for l in pw:
-            assert l in test.alphabet
+        for letter in pw:
+            assert letter in test.alphabet
 
 
 if __name__ == "__main__":
